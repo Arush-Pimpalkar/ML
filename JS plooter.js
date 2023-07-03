@@ -52,16 +52,18 @@ function guess(inputs, weights) {
     sum[i] = inputs[i] * weights[i]; //works
   } // multiplies the weights and coors
   return sum;
-  //output is a array
+  //output sum is a array
 }
 
-function train(weight, inputs, desired) {
-  // inputs are nA
-  let error = guess(inputs, weight) - desired;
-  if (error != 0) {
-    weight += learnc * error * inputs;
+function train(weight, input, desired) {
+  // inputs are an Array
+  for (let i = 0; i < input.length; i++) {
+    let error = guess(input, weight)[i] - desired[i];
+    if (error != 0) {
+      weight[i] += learnc * error * input[i];
+    }
+    //no returns just adjusts the value of weights
   }
-  //no outputs just adjusts the value of weights
 }
 
 function classify(x, y) {
