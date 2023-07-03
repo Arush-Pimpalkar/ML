@@ -10,6 +10,8 @@ let colorPointOrangeX = [];
 let colorPointOrangeY = [];
 const xValues = [];
 const yValues = [];
+
+let learnc = 0.001;
 // Compute Random Weights
 let xWeights = [];
 let yWeights = [];
@@ -26,12 +28,11 @@ for (let y = yMin; y < yMax; ) {
 
 function rWeights(array, xCoor) {
   for (let i = 0; i < xCoor; i++) {
-    array[i] = Math.random() * 2 - 1; // range : -1 to +1
+    return (array[i] = Math.random() * 2 - 1); // range : -1 to +1
   }
 }
 rWeights(xWeights, xValues.length);
-rWeights(yWeights, yValues.length);
-console.log(xWeights, yWeights);
+rWeights(yWeights, yValues.length); // works
 
 function graph(x) {
   return 3 * x + 0.75;
@@ -43,13 +44,39 @@ function desired(y, x) {
     return 0;
   }
 }
-function activate(inputs, weights) {
+
+function guess(inputs, weights) {
   let sum = 0;
-  sum += inputs[i] * weights[i]; // multiplies the weights and coors
+  for (let i = 0; i < inputs.length; i++) {
+    sum += inputs[i] * weights[i]; //works
+  } // multiplies the weights and coors
   return sum;
 }
 
-for (let i = 0; i < xValues.length; i++)
+function train(weights, inputs) {
+  let error = guess(inputs, weights) - desired;
+  if (error != 0) {
+    weights += learnc * error * inputs;
+  }
+}
+
+function classify(x, y) {
+  if (sum > bias) {
+    colorPointBlackX.push(x);
+    colorPointBlackY.push(y);
+  } else {
+    colorPointOrangeX.push(x);
+    colorPointOrangeY.push(y);
+  }
+}
+
+/*
+while (guess != desired) {
+  train(xWeights);
+  train(yWeights);
+}
+*/
+for (let i = 0; i < xValues.length; i++) {
   if (3 * xValues[i] + 0.75 - yValues[i] > 0) {
     colorPointBlackX.push(xValues[i]);
     colorPointBlackY.push(yValues[i]);
@@ -57,6 +84,7 @@ for (let i = 0; i < xValues.length; i++)
     colorPointOrangeX.push(xValues[i]);
     colorPointOrangeY.push(yValues[i]);
   }
+}
 
 var yVal2 = [];
 xValues.forEach((element) => {
@@ -77,8 +105,6 @@ const orangePoints = {
   marker: { color: "rgb(237, 128, 19)" },
 };
 
-aaa;
-
 const blackPoints = {
   x: colorPointBlackX,
   y: colorPointBlackY,
@@ -86,6 +112,5 @@ const blackPoints = {
   marker: { color: "black" },
 };
 
-aaa;
 var data = [lines, blackPoints, orangePoints];
-//Plotly.newPlot("myPlot", data);
+Plotly.newPlot("myPlot", data);
