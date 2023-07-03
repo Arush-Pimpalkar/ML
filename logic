@@ -1,0 +1,11 @@
+create random weights using math.random //
+compute the weighhts * points coordinate product (guess) //
+desired value is the comparison that gives where the point is located wrt to the line by substituing the points in the line equation //
+if the guess is not equal to the desired value, then the weights are adjusted/TRAINED till the desired is equal to the guess value
+desired = the point is located wrt to the line by substituing the points in the line equation
+if the guess = desired ====> stop
+
+output is to be determined by the percepton
+if output  = 1 color is back
+if output is 0 then orange 
+display the points ???????????????
