@@ -6,6 +6,7 @@ desired = the point is located wrt to the line by substituing the points in the 
 if the guess = desired ====> stop
 
 output is to be determined by the percepton
-if output  = 1 color is back
-if output is 0 then orange 
-display the points ???????????????
+
+all the points are black by default
+
+the loop should create array/json array that specifies what color the point should be 
