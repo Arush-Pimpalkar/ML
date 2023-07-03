@@ -4,6 +4,8 @@ var xMax = 100;
 var yMin = -100;
 var yMax = 100;
 
+console.log("heheheh"); 
+
 let colorPointBlackX = [];
 let colorPointBlackY = [];
 let colorPointOrangeX = [];
