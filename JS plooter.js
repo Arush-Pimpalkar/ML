@@ -46,22 +46,28 @@ function desired(y, x) {
 }
 
 function guess(inputs, weights) {
-  let sum = 0;
+  //inputs are in array
+  let sum = [];
   for (let i = 0; i < inputs.length; i++) {
-    sum += inputs[i] * weights[i]; //works
+    sum[i] = inputs[i] * weights[i]; //works
   } // multiplies the weights and coors
   return sum;
+  //output is a array
 }
 
-function train(weights, inputs) {
-  let error = guess(inputs, weights) - desired;
+function train(weight, inputs, desired) {
+  // inputs are nA
+  let error = guess(inputs, weight) - desired;
   if (error != 0) {
-    weights += learnc * error * inputs;
+    weight += learnc * error * inputs;
   }
+  //no outputs just adjusts the value of weights
 }
+
+function compare(guess, desired) {}
 
 function classify(x, y) {
-  if (sum > bias) {
+  if (x) {
     colorPointBlackX.push(x);
     colorPointBlackY.push(y);
   } else {
@@ -69,13 +75,6 @@ function classify(x, y) {
     colorPointOrangeY.push(y);
   }
 }
-
-/*
-while (guess != desired) {
-  train(xWeights);
-  train(yWeights);
-}
-*/
 for (let i = 0; i < xValues.length; i++) {
   if (3 * xValues[i] + 0.75 - yValues[i] > 0) {
     colorPointBlackX.push(xValues[i]);
