@@ -64,8 +64,6 @@ function train(weight, inputs, desired) {
   //no outputs just adjusts the value of weights
 }
 
-function compare(guess, desired) {}
-
 function classify(x, y) {
   if (x) {
     colorPointBlackX.push(x);
