@@ -45,14 +45,9 @@ function desired(y, x) {
 }
 function activate(inputs, weights) {
   let sum = 0;
-  sum += inputs[i] * weights[i];  // multiplies the weights and coors
+  sum += inputs[i] * weights[i]; // multiplies the weights and coors
   return sum;
 }
-
-
-
-
-
 
 for (let i = 0; i < xValues.length; i++)
   if (3 * xValues[i] + 0.75 - yValues[i] > 0) {
