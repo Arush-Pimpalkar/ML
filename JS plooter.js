@@ -86,5 +86,6 @@ const blackPoints = {
   marker: { color: "black" },
 };
 
+aaa;
 var data = [lines, blackPoints, orangePoints];
 //Plotly.newPlot("myPlot", data);
