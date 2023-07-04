@@ -35,15 +35,15 @@ function rWeights(array, xCoor) {
 rWeights(xWeights, xValues.length);
 rWeights(yWeights, yValues.length); // works
 
+slope = 3;
+intercept = 0.75;
 function graph(x) {
-  return 3 * x + 0.75;
+  return slope * x + intercept;
 }
-function desired(y, x) {
-  if (y - graph(x) > 0) {
-    return 1;
-  } else {
-    return 0;
-  }
+function desired(x, y) {
+  // desired is DBPAL
+  let DBPAL = Math.abs(y - graph(x)) / Math.sqrt(1 + slope * slope); //works
+  return DBPAL;
 }
 
 function guess(inputs, weights) {
@@ -54,7 +54,7 @@ function guess(inputs, weights) {
   } // multiplies the weights and coors
   return sum;
   //output sum is a array
-} 
+}
 
 function train(weight, input, desired) {
   // inputs are an Array
@@ -66,6 +66,7 @@ function train(weight, input, desired) {
     //no returns just adjusts the value of weights
   }
 }
+
 
 
 
