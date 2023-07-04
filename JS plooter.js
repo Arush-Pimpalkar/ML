@@ -67,11 +67,6 @@ function train(weight, input, desired) {
   }
 }
 
-
-
-
-
-
 function classify(x, y) {
   if (x) {
     colorPointBlackX.push(x);
