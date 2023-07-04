@@ -28,8 +28,9 @@ for (let y = yMin; y < yMax; ) {
 
 function rWeights(array, xCoor) {
   for (let i = 0; i < xCoor; i++) {
-    return (array[i] = Math.random() * 2 - 1); // range : -1 to +1
+    array[i] = Math.random() * 2 - 1; // range : -1 to +1
   }
+  return array;
 }
 rWeights(xWeights, xValues.length);
 rWeights(yWeights, yValues.length); // works
@@ -53,7 +54,7 @@ function guess(inputs, weights) {
   } // multiplies the weights and coors
   return sum;
   //output sum is a array
-}
+} 
 
 function train(weight, input, desired) {
   // inputs are an Array
@@ -65,6 +66,10 @@ function train(weight, input, desired) {
     //no returns just adjusts the value of weights
   }
 }
+
+
+
+
 
 function classify(x, y) {
   if (x) {
