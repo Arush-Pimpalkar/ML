@@ -42,7 +42,10 @@ function graph(x) {
 }
 function desired(x, y) {
   // desired is DBPAL
-  let DBPAL = Math.abs(y - graph(x)) / Math.sqrt(1 + slope * slope); //works
+  let DBPAL = [];
+  for (let i = 0; i < x.length; i++) {
+    DBPAL[i] = Math.abs(y[i] - graph(x[i])) / Math.sqrt(1 + slope * slope); //works
+  }
   return DBPAL;
 }
 
@@ -58,14 +61,20 @@ function guess(inputs, weights) {
 
 function train(weight, input, desired) {
   // inputs are an Array
-  for (let i = 0; i < input.length; i++) {
-    let error = guess(input, weight)[i] - desired[i];
-    if (error != 0) {
+  let i = 0;
+  let error = guess(input, weight)[i] - desired[i];
+  let count = 1;
+  while (error != 0) {
+    for (i < input.length; i++; ) {
       weight[i] += learnc * error * input[i];
     }
+    console.log(count + " ---> " + weight);
+    count++;
     //no returns just adjusts the value of weights
   }
 }
+
+train(xWeights, guess(xValues, xWeights), desired(xValues, yValues));
 
 function classify(x, y) {
   if (x) {
