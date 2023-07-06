@@ -16,14 +16,21 @@ function desired(x, y) {
 function guess(inputs, weights) {
   //inputs are in array
   let sum = [];
+  let l = 0;
+
   for (let i = 0; i < inputs.length; i++) {
     sum[i] = inputs[i] * weights[i]; //works
   } // multiplies the weights and coors
+  console.log(l);
   console.log(sum);
+  l++;
   return sum;
+
   //output sum is a array
 }
+
 let error = [];
+
 
 function train(weight, input, desired) {
   // inputs are an Array

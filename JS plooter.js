@@ -48,6 +48,7 @@ function classify(x, y) {
     colorPointOrangeY.push(y);
   }
 }
+
 for (let i = 0; i < xValues.length; i++) {
   if (3 * xValues[i] + 0.75 - yValues[i] > 0) {
     colorPointBlackX.push(xValues[i]);
@@ -83,6 +84,7 @@ const blackPoints = {
   mode: "markers",
   marker: { color: "black" },
 };
+
 
 var data = [lines, blackPoints, orangePoints];
 Plotly.newPlot("myPlot", data);
