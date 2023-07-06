@@ -29,14 +29,13 @@ function guess(inputs, weights) {
   //output sum is a array
 }
 
-
-
-
 function train(weight, input, desired) {
   // inputs are an Array
+  let count = 1;
   for (let j = 0; j < input.length; j++) {
     error[j] = guess(input, weight)[j] - desired[j];
     weight[j] += learnc * error[j] * input[j];
+    console.log(`count = ${count}`);
+    count++;
   }
 }
-

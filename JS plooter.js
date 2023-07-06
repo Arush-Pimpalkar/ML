@@ -36,25 +36,17 @@ function graph(x) {
 
 let guessed = guess(xValues, xWeights);
 
-let error = [];
+let error = [2, 3];
+
+let desiredarr = desired(xValues, yValues);
 for (let k = 0; k < error.length; k++) {
   if (error[k] != 0) {
     train(xWeights, guessed, desiredarr);
+    console.log(`${xWeights}`);
   }
 }
-let desiredarr = desired(xValues, yValues);
 
 console.log(`trained = ${(xWeights, yWeights)}`);
-
-function classify(x, y) {
-  if (x) {
-    colorPointBlackX.push(x);
-    colorPointBlackY.push(y);
-  } else {
-    colorPointOrangeX.push(x);
-    colorPointOrangeY.push(y);
-  }
-}
 
 for (let i = 0; i < xValues.length; i++) {
   if (3 * xValues[i] + 0.75 - yValues[i] > 0) {
