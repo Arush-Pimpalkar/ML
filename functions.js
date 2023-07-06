@@ -29,7 +29,7 @@ function guess(inputs, weights) {
   //output sum is a array
 }
 
-let error = [];
+
 
 
 function train(weight, input, desired) {
@@ -40,8 +40,3 @@ function train(weight, input, desired) {
   }
 }
 
-for (let k = 0; k < error.length; k++) {
-  if (error[k] != 0) {
-    train();
-  }
-}

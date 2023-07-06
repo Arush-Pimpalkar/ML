@@ -35,8 +35,15 @@ function graph(x) {
 }
 
 let guessed = guess(xValues, xWeights);
+
+let error = [];
+for (let k = 0; k < error.length; k++) {
+  if (error[k] != 0) {
+    train(xWeights, guessed, desiredarr);
+  }
+}
 let desiredarr = desired(xValues, yValues);
-train(xWeights, guessed, desiredarr);
+
 console.log(`trained = ${(xWeights, yWeights)}`);
 
 function classify(x, y) {
@@ -84,7 +91,6 @@ const blackPoints = {
   mode: "markers",
   marker: { color: "black" },
 };
-
 
 var data = [lines, blackPoints, orangePoints];
 Plotly.newPlot("myPlot", data);
