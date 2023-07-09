@@ -7,4 +7,6 @@ my_column_names = ['temperature', 'activity']
 
 
 my_dataframe = pd.DataFrame(data=my_data, columns=my_column_names)
+my_dataframe["adjusted"] = my_dataframe["activity"] + 2
+
 print(my_dataframe)
